@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard - Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .pulse {
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .option-btn {
+            transition: all 0.3s ease;
+        }
+
+        .option-btn:hover {
+            transform: translateX(10px);
+        }
+
+        .correct {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .incorrect {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+    </style>
+</head>
+<body class="m-0 p-0 bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 min-h-screen">
+    
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-950 bg-opacity-50 backdrop-blur-sm border-b border-blue-400 border-opacity-30">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <svg class="text-cyan-400" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span class="text-white font-bold text-xl">PhishGuard</span>
+                </div>
+                <div class="flex gap-6">
+                    <a href="index.html" class="text-white hover:text-cyan-300 transition-colors">Home</a>
+                    <a href="quiz.html" class="text-cyan-300 font-bold">Quiz</a>
+                    <a href="learn.html" class="text-white hover:text-cyan-300 transition-colors">Learn</a>
+                    <a href="resources.html" class="text-white hover:text-cyan-300 transition-colors">Resources</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quiz Container -->
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-white mb-4">🎣 Phishing Quiz</h1>
+            <p class="text-xl text-cyan-100">Test your ability to spot phishing attempts</p>
+        </div>
+
+        <!-- Quiz Content -->
+        <div id="quiz-container" class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-8 border border-white border-opacity-20">
+            
+            <!-- Start Screen -->
+            <div id="start-screen" class="text-center slide-in">
+                <div class="mb-8">
+                    <div class="mx-auto w-32 h-32 bg-cyan-500 bg-opacity-20 rounded-full flex items-center justify-center border-4 border-cyan-400">
+                        <span class="text-7xl text-cyan-400">?</span>
+                    </div>
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-4">Ready to Test Your Skills?</h2>
+                <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+                    This quiz contains 10 real-world scenarios. You'll need to identify whether emails, 
+                    messages, and websites are legitimate or phishing attempts.
+                </p>
+                <div class="space-y-4 text-left max-w-md mx-auto mb-8">
+                    <div class="flex items-center gap-3 text-white">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>10 questions covering different phishing techniques</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Instant feedback with detailed explanations</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Learn from your mistakes</span>
+                    </div>
+                </div>
+                <button onclick="startQuiz()" class="bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 px-12 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/50">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- Question Screen -->
+            <div id="question-screen" class="hidden">
+                <!-- Progress Bar -->
+                <div class="mb-6">
+                    <div class="flex justify-between text-white mb-2">
+                        <span>Question <span id="current-question">1</span> of <span id="total-questions">10</span></span>
+                        <span>Score: <span id="score">0</span></span>
+                    </div>
+                    <div class="w-full bg-blue-900 rounded-full h-3">
+                        <div id="progress-bar" class="bg-cyan-400 h-3 rounded-full transition-all duration-500" style="width: 10%"></div>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div id="question-container" class="mb-8">
+                    <h3 class="text-2xl font-bold text-white mb-4" id="question-text"></h3>
+                    <div class="bg-blue-900 bg-opacity-50 rounded-lg p-6 mb-6">
+                        <div class="text-sm text-cyan-300 mb-2">Scenario:</div>
+                        <div class="text-white" id="scenario-text"></div>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div id="options-container" class="space-y-4 mb-6">
+                    <!-- Options will be inserted here -->
+                </div>
+
+                <!-- Feedback -->
+                <div id="feedback" class="hidden p-6 rounded-lg mb-6">
+                    <div class="flex items-start gap-4">
+                        <svg id="feedback-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+                        <div class="flex-1">
+                            <h4 id="feedback-title" class="text-xl font-bold mb-2"></h4>
+                            <p id="feedback-text" class="text-white"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Button -->
+                <button id="next-btn" onclick="nextQuestion()" class="hidden w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105">
+                    Next Question
+                </button>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="hidden text-center slide-in">
+                <div class="mb-8">
+                    <div id="results-icon" class="mx-auto mb-6"></div>
+                    <h2 class="text-4xl font-bold text-white mb-4">Quiz Complete!</h2>
+                    <div class="text-6xl font-bold text-cyan-400 mb-2">
+                        <span id="final-score">0</span>/<span id="final-total">10</span>
+                    </div>
+                    <p class="text-xl text-blue-100 mb-6" id="results-message"></p>
+                </div>
+
+                <div class="bg-blue-900 bg-opacity-50 rounded-lg p-6 mb-8 max-w-md mx-auto">
+                    <h3 class="text-xl font-bold text-white mb-4">Your Performance</h3>
+                    <div class="space-y-3 text-left">
+                        <div class="flex justify-between text-white">
+                            <span>Correct Answers:</span>
+                            <span class="font-bold text-green-400" id="correct-count">0</span>
+                        </div>
+                        <div class="flex justify-between text-white">
+                            <span>Incorrect Answers:</span>
+                            <span class="font-bold text-red-400" id="incorrect-count">0</span>
+                        </div>
+                        <div class="flex justify-between text-white">
+                            <span>Accuracy:</span>
+                            <span class="font-bold text-cyan-400" id="accuracy">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 justify-center">
+                    <button onclick="restartQuiz()" class="bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105">
+                        Retake Quiz
+                    </button>
+                    <a href="learn.html" class="bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-bold py-4 px-8 rounded-xl transition-all backdrop-blur-md border border-white border-opacity-30 inline-block">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "Is this email legitimate or phishing?",
+                scenario: "From: security@paypa1-support.com\nSubject: Urgent: Your account will be suspended\n\nDear valued customer,\n\nYour PayPal account has been limited due to suspicious activity. Click here immediately to verify your identity or your account will be permanently suspended within 24 hours.\n\nClick here: http://paypa1-verify.com/account",
+                options: ["Legitimate", "Phishing"],
+                correct: 1,
+                explanation: "This is PHISHING! Red flags: (1) Misspelled domain 'paypa1' instead of 'paypal', (2) Creates urgency with threats, (3) Suspicious URL, (4) Generic greeting 'valued customer' instead of your name."
+            },
+            {
+                question: "Should you trust this message?",
+                scenario: "From: boss@yourcompany.com\nSubject: Urgent Wire Transfer\n\nI'm in a meeting and need you to wire $5,000 to this account immediately. I'll explain later. This is confidential, don't discuss with anyone.\n\nAccount: 1234567890\nRouting: 987654321",
+                options: ["Yes, it's from my boss", "No, verify first"],
+                correct: 1,
+                explanation: "VERIFY FIRST! This is a common 'CEO Fraud' attack. Red flags: (1) Unusual request, (2) Creates urgency, (3) Demands secrecy, (4) No verbal confirmation. Always verify financial requests through another channel!"
+            },
+            {
+                question: "Is this link safe to click?",
+                scenario: "You receive a text message:\n\n'Your package delivery failed. Track your package here: https://amaz0n-tracking.com/pkg/12345'\n\nYou weren't expecting a package.",
+                options: ["Safe to click", "Suspicious, don't click"],
+                correct: 1,
+                explanation: "DON'T CLICK! Red flags: (1) You weren't expecting a package, (2) Misspelled domain 'amaz0n' with zero instead of 'o', (3) Unexpected text message. Always go directly to the official website, never click links in unsolicited messages."
+            },
+            {
+                question: "Is this email from your bank legitimate?",
+                scenario: "From: alerts@chase.com\nSubject: Unusual Activity Detected\n\nWe detected a login from a new device in California. If this wasn't you, please review your recent activity in your account.\n\nLog in to Chase: https://www.chase.com\n\nThis is an automated message. Do not reply.",
+                options: ["Legitimate", "Phishing"],
+                correct: 0,
+                explanation: "This appears LEGITIMATE! Good signs: (1) Correct domain @chase.com, (2) Link goes to actual chase.com website, (3) Doesn't ask for credentials directly, (4) Professional formatting. However, always verify by typing the URL manually or using your banking app."
+            },
+            {
+                question: "Should you enter your password on this site?",
+                scenario: "You click a link from a Google search and land on a site that looks like Facebook. The URL shows: http://facebo0k-login.com/signin\n\nThe page asks for your email and password.",
+                options: ["Yes, it looks like Facebook", "No, it's a fake site"],
+                correct: 1,
+                explanation: "FAKE SITE! Red flags: (1) Wrong URL 'facebo0k' with zero instead of 'o', (2) Not using HTTPS (no padlock), (3) Different domain name. The real Facebook is at facebook.com. Always check the URL carefully before entering credentials!"
+            },
+            {
+                question: "Is this a legitimate job offer?",
+                scenario: "From: hr@google-careers.net\nSubject: Job Offer - No Interview Needed!\n\n'Congratulations! You've been selected for a $95,000/year remote position at Google. No experience necessary! Send your SSN and bank details to process your hiring paperwork and first paycheck.'",
+                options: ["Legitimate offer", "Scam"],
+                correct: 1,
+                explanation: "SCAM! Red flags: (1) Wrong domain (Google uses @google.com), (2) No interview process, (3) Too good to be true salary for 'no experience', (4) Asking for SSN/bank details upfront. Legitimate companies never ask for sensitive info via email."
+            },
+            {
+                question: "Is this Microsoft support message real?",
+                scenario: "A pop-up appears on your computer:\n\n'CRITICAL SECURITY ALERT!\nYour Windows has been infected with 5 viruses!\nCall Microsoft Support NOW: 1-800-XXX-XXXX\nDo not close this window!'",
+                options: ["Real Microsoft alert", "Scam"],
+                correct: 1,
+                explanation: "SCAM! Red flags: (1) Microsoft never shows pop-up alerts with phone numbers, (2) Creates panic and urgency, (3) Uses scare tactics, (4) Real security alerts come through Windows Security Center. Microsoft will NEVER cold-call you or show pop-ups with phone numbers."
+            },
+            {
+                question: "Should you trust this email attachment?",
+                scenario: "From: colleague@yourcompany.com\nSubject: Invoice Q3_2024.pdf.exe\n\n'Hey, here's the invoice you requested. Let me know if you have questions!'\n\nAttachment: Invoice_Q3_2024.pdf.exe (2.3 MB)",
+                options: ["Safe to open", "Dangerous, don't open"],
+                correct: 1,
+                explanation: "DANGEROUS! Red flags: (1) Double file extension .pdf.exe means it's an executable program, not a PDF, (2) PDFs shouldn't be 2.3 MB unless they have images, (3) Even though it's from a colleague, their account might be compromised. Never open .exe files from emails!"
+            },
+            {
+                question: "Is this Netflix email legitimate?",
+                scenario: "From: info@netflix.com\nSubject: Your payment method needs updating\n\n'Your payment failed. Update your billing information to continue your subscription.\n\nUpdate Payment: https://www.netflix.com/account/billing'\n\nFooter includes unsubscribe link and Netflix address.",
+                options: ["Legitimate", "Phishing"],
+                correct: 0,
+                explanation: "This appears LEGITIMATE! Good signs: (1) Correct domain @netflix.com, (2) Link goes to actual netflix.com, (3) Professional formatting with unsubscribe option, (4) Real business address. Still, best practice is to go directly to netflix.com rather than clicking the link."
+            },
+            {
+                question: "Is this two-factor authentication message safe?",
+                scenario: "You receive a text: 'Your verification code is: 847293. Don't share this with anyone. Valid for 10 minutes.'\n\nYou didn't try to log in to anything just now.",
+                options: ["Safe, just ignore it", "Suspicious, someone may have your password"],
+                correct: 1,
+                explanation: "VERY SUSPICIOUS! If you didn't request this code, someone else has your password and is trying to log into your account! Red flags: (1) Unexpected 2FA code, (2) You didn't try to log in. Action: Immediately change your password and check for unauthorized access. Enable 2FA if you haven't already!"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answeredQuestions = 0;
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('question-screen').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = quizData[currentQuestion];
+            document.getElementById('current-question').textContent = currentQuestion + 1;
+            document.getElementById('total-questions').textContent = quizData.length;
+            document.getElementById('question-text').textContent = question.question;
+            document.getElementById('scenario-text').textContent = question.scenario;
+            
+            // Update progress bar
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+
+            // Load options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-btn w-full bg-white bg-opacity-10 hover:bg-opacity-20 text-white text-left font-semibold py-4 px-6 rounded-xl backdrop-blur-md border border-white border-opacity-30';
+                button.textContent = option;
+                button.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(button);
+            });
+
+            // Hide feedback and next button
+            document.getElementById('feedback').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectAnswer(selectedIndex) {
+            const question = quizData[currentQuestion];
+            const options = document.querySelectorAll('.option-btn');
+            const feedback = document.getElementById('feedback');
+            const feedbackIcon = document.getElementById('feedback-icon');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackText = document.getElementById('feedback-text');
+
+            // Disable all options
+            options.forEach(opt => opt.disabled = true);
+
+            const isCorrect = selectedIndex === question.correct;
+
+            if (isCorrect) {
+                score++;
+                options[selectedIndex].classList.add('correct', 'pulse');
+                feedback.className = 'p-6 rounded-lg mb-6 bg-green-500 bg-opacity-20 border border-green-400 slide-in';
+                feedbackIcon.innerHTML = '<circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path>';
+                feedbackIcon.className = 'text-green-400';
+                feedbackTitle.textContent = '✓ Correct!';
+                feedbackTitle.className = 'text-xl font-bold mb-2 text-green-400';
+            } else {
+                options[selectedIndex].classList.add('incorrect', 'shake');
+                options[question.correct].classList.add('correct');
+                feedback.className = 'p-6 rounded-lg mb-6 bg-red-500 bg-opacity-20 border border-red-400 slide-in';
+                feedbackIcon.innerHTML = '<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>';
+                feedbackIcon.className = 'text-red-400';
+                feedbackTitle.textContent = '✗ Incorrect';
+                feedbackTitle.className = 'text-xl font-bold mb-2 text-red-400';
+            }
+
+            feedbackText.textContent = question.explanation;
+            feedback.classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+            document.getElementById('score').textContent = score;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-screen').classList.add('hidden');
+            document.getElementById('results-screen').classList.remove('hidden');
+
+            const finalScore = score;
+            const totalQuestions = quizData.length;
+            const accuracy = Math.round((finalScore / totalQuestions) * 100);
+
+            document.getElementById('final-score').textContent = finalScore;
+            document.getElementById('final-total').textContent = totalQuestions;
+            document.getElementById('correct-count').textContent = finalScore;
+            document.getElementById('incorrect-count').textContent = totalQuestions - finalScore;
+            document.getElementById('accuracy').textContent = accuracy + '%';
+
+            // Results message based on score
+            const resultsMessage = document.getElementById('results-message');
+            const resultsIcon = document.getElementById('results-icon');
+            
+            if (accuracy >= 90) {
+                resultsMessage.textContent = "Outstanding! You're a phishing detection expert!";
+                resultsIcon.innerHTML = '<div class="text-8xl">🏆</div>';
+            } else if (accuracy >= 70) {
+                resultsMessage.textContent = "Great job! You have a good eye for phishing.";
+                resultsIcon.innerHTML = '<div class="text-8xl">⭐</div>';
+            } else if (accuracy >= 50) {
+                resultsMessage.textContent = "Good effort! Review the explanations to improve.";
+                resultsIcon.innerHTML = '<div class="text-8xl">👍</div>';
+            } else {
+                resultsMessage.textContent = "Keep learning! Practice makes perfect.";
+                resultsIcon.innerHTML = '<div class="text-8xl">📚</div>';
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('results-screen').classList.add('hidden');
+            document.getElementById('question-screen').classList.remove('hidden');
+            loadQuestion();
+        }
+    </script>
+
+</body>
+</html>

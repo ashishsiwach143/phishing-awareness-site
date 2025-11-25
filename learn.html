@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard - Learn About Phishing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="m-0 p-0 bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 min-h-screen">
+    
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-950 bg-opacity-50 backdrop-blur-sm border-b border-blue-400 border-opacity-30 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <svg class="text-cyan-400" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span class="text-white font-bold text-xl">PhishGuard</span>
+                </div>
+                <div class="flex gap-6">
+                    <a href="index.html" class="text-white hover:text-cyan-300 transition-colors">Home</a>
+                    <a href="quiz.html" class="text-white hover:text-cyan-300 transition-colors">Quiz</a>
+                    <a href="learn.html" class="text-cyan-300 font-bold">Learn</a>
+                    <a href="resources.html" class="text-white hover:text-cyan-300 transition-colors">Resources</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="text-center mb-16 fade-in">
+            <h1 class="text-5xl font-bold text-white mb-4">📚 Learn About Phishing</h1>
+            <p class="text-xl text-cyan-100 max-w-3xl mx-auto">
+                Understanding phishing attacks is your first line of defense. Learn how to identify and protect yourself from cyber threats.
+            </p>
+        </div>
+
+        <!-- What is Phishing Section -->
+        <section class="mb-16 fade-in" style="animation-delay: 0.2s;">
+            <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-8 border border-white border-opacity-20">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 bg-red-500 bg-opacity-20 rounded-full flex items-center justify-center">
+                        <span class="text-4xl">🎣</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white">What is Phishing?</h2>
+                </div>
+                <p class="text-lg text-blue-100 leading-relaxed mb-4">
+                    Phishing is a type of cyber attack where criminals impersonate legitimate organizations or individuals to trick you into revealing sensitive information such as passwords, credit card numbers, or personal data.
+                </p>
+                <p class="text-lg text-blue-100 leading-relaxed">
+                    The term "phishing" comes from the analogy of fishing - attackers cast out "bait" (fake emails, messages, or websites) hoping victims will "bite" by clicking malicious links or providing confidential information.
+                </p>
+            </div>
+        </section>
+
+        <!-- Types of Phishing -->
+        <section class="mb-16 fade-in" style="animation-delay: 0.4s;">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Types of Phishing Attacks</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Email Phishing -->
+                <div class="card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">📧</span>
+                        <h3 class="text-2xl font-bold text-white">Email Phishing</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">
+                        The most common type. Attackers send fraudulent emails that appear to be from trusted sources like banks, companies, or government agencies.
+                    </p>
+                    <div class="bg-blue-900 bg-opacity-50 rounded-lg p-4">
+                        <p class="text-sm text-cyan-300 font-semibold mb-2">Example:</p>
+                        <p class="text-white text-sm italic">
+                            "Your account has been suspended. Click here to verify your identity within 24 hours or lose access permanently."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Spear Phishing -->
+                <div class="card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">🎯</span>
+                        <h3 class="text-2xl font-bold text-white">Spear Phishing</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">
+                        Targeted attacks aimed at specific individuals or organizations. Attackers research their victims to make messages more convincing.
+                    </p>
+                    <div class="bg-blue-900 bg-opacity-50 rounded-lg p-4">
+                        <p class="text-sm text-cyan-300 font-semibold mb-2">Example:</p>
+                        <p class="text-white text-sm italic">
+                            "Hi John, I saw your presentation at the conference last week. Here's the document you requested about Project Phoenix."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Smishing (SMS) -->
+                <div class="card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">📱</span>
+                        <h3 class="text-2xl font-bold text-white">Smishing (SMS Phishing)</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">
+                        Phishing attacks delivered via text messages. Often claim to be from delivery services, banks, or government agencies.
+                    </p>
+                    <div class="bg-blue-900 bg-opacity-50 rounded-lg p-4">
+                        <p class="text-sm text-cyan-300 font-semibold mb-2">Example:</p>
+                        <p class="text-white text-sm italic">
+                            "USPS: Your package is pending. Confirm delivery address: bit.ly/pkgXYZ123"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Vishing (Voice) -->
+                <div class="card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">📞</span>
+                        <h3 class="text-2xl font-bold text-white">Vishing (Voice Phishing)</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">
+                        Phone-based attacks where scammers impersonate legitimate organizations to extract information or money.
+                    </p>
+                    <div class="bg-blue-900 bg-opacity-50 rounded-lg p-4">
+                        <p class="text-sm text-cyan-300 font-semibold mb-2">Example:</p>
+                        <p class="text-white text-sm italic">
+                            "This is Microsoft Tech Support. We've detected viruses on your computer. We need remote access to fix it immediately."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Whaling -->
+                <div class="card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">🐋</span>
+                        <h3 class="text-2xl font-bold text-white">Whaling</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">
+                        High-profile attacks targeting senior executives, CEOs, or other "big fish" in organizations for financial fraud.
+                    </p>
+                    <div class="bg-blue-900 bg-opacity-50 rounded-lg p-4">
+                        <p class="text-sm text-cyan-300 font-semibold mb-2">Example:</p>
+                        <p class="text-white text-sm italic">
+                            "CEO to CFO: I'm in an urgent meeting. Wire $50,000 to this vendor account immediately. I'll explain later."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Clone Phishing -->
+                <div class="card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">👥</span>
+                        <h3 class="text-2xl font-bold text-white">Clone Phishing</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">
+                        Attackers create near-identical copies of legitimate emails you've received before, but replace links or attachments with malicious ones.
+                    </p>
+                    <div class="bg-blue-900 bg-opacity-50 rounded-lg p-4">
+                        <p class="text-sm text-cyan-300 font-semibold mb-2">Example:</p>
+                        <p class="text-white text-sm italic">
+                            "Resending the invoice from last week - please review the updated version attached."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warning Signs -->
+        <section class="mb-16 fade-in" style="animation-delay: 0.6s;">
+            <div class="bg-gradient-to-r from-red-900 to-orange-900 bg-opacity-50 backdrop-blur-md rounded-2xl p-8 border border-red-400 border-opacity-30">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 bg-red-500 bg-opacity-30 rounded-full flex items-center justify-center">
+                        <svg class="text-red-300" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white">⚠️ Warning Signs of Phishing</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🚨</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-red-200 mb-1">Urgency and Threats</h4>
+                                <p class="text-red-100">Claims your account will be closed, suspended, or you'll face consequences if you don't act immediately.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">✉️</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-red-200 mb-1">Suspicious Sender</h4>
+                                <p class="text-red-100">Email address doesn't match the company name, has misspellings, or uses generic domains like @gmail.com.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔗</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-red-200 mb-1">Suspicious Links</h4>
+                                <p class="text-red-100">Hover over links to reveal the true destination. Look for misspelled domains or strange URLs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">📎</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-red-200 mb-1">Unexpected Attachments</h4>
+                                <p class="text-red-100">Unsolicited attachments, especially .exe, .zip, or files with double extensions like .pdf.exe.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">👤</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-red-200 mb-1">Generic Greetings</h4>
+                                <p class="text-red-100">"Dear Customer" or "Valued Member" instead of your actual name suggests mass phishing.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">📝</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-red-200 mb-1">Poor Grammar/Spelling</h4>
+                                <p class="text-red-100">Legitimate companies proofread their communications. Multiple errors are red flags.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🎁</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-red-200 mb-1">Too Good to Be True</h4>
+                                <p class="text-red-100">Unexpected prizes, inheritance, job offers, or money that require you to "act now" or pay fees.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔐</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-red-200 mb-1">Requests for Personal Info</h4>
+                                <p class="text-red-100">Legitimate companies never ask for passwords, PINs, or full credit card numbers via email.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protection Tips -->
+        <section class="mb-16 fade-in" style="animation-delay: 0.8s;">
+            <div class="bg-gradient-to-r from-green-900 to-emerald-900 bg-opacity-50 backdrop-blur-md rounded-2xl p-8 border border-green-400 border-opacity-30">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 bg-green-500 bg-opacity-30 rounded-full flex items-center justify-center">
+                        <svg class="text-green-300" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white">🛡️ How to Protect Yourself</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-green-800 bg-opacity-30 rounded-lg p-6">
+                        <div class="text-4xl mb-3">🔍</div>
+                        <h4 class="text-xl font-bold text-green-200 mb-3">Verify Before Acting</h4>
+                        <ul class="space-y-2 text-green-100 text-sm">
+                            <li>• Double-check sender addresses</li>
+                            <li>• Hover over links before clicking</li>
+                            <li>• Contact companies directly using official numbers</li>
+                            <li>• Search for the message online to see if it's a known scam</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-800 bg-opacity-30 rounded-lg p-6">
+                        <div class="text-4xl mb-3">🔐</div>
+                        <h4 class="text-xl font-bold text-green-200 mb-3">Use Security Tools</h4>
+                        <ul class="space-y-2 text-green-100 text-sm">
+                            <li>• Enable two-factor authentication (2FA)</li>
+                            <li>• Use a password manager</li>
+                            <li>• Keep software and browsers updated</li>
+                            <li>• Install anti-phishing browser extensions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-800 bg-opacity-30 rounded-lg p-6">
+                        <div class="text-4xl mb-3">🧠</div>
+                        <h4 class="text-xl font-bold text-green-200 mb-3">Think Before You Click</h4>
+                        <ul class="space-y-2 text-green-100 text-sm">
+                            <li>• Be skeptical of urgent requests</li>
+                            <li>• Never share passwords via email</li>
+                            <li>• Type URLs directly instead of clicking links</li>
+                            <li>• Report suspicious messages to IT/security teams</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real Statistics -->
+        <section class="mb-16 fade-in" style="animation-delay: 1s;">
+            <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-8 border border-white border-opacity-20">
+                <h2 class="text-3xl font-bold text-white mb-8 text-center">📊 Phishing by the Numbers</h2>
+                
+                <div class="grid md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="text-5xl font-bold text-cyan-400 mb-2">90%</div>
+                        <p class="text-blue-100">of data breaches start with phishing</p>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold text-cyan-400 mb-2">1.2M</div>
+                        <p class="text-blue-100">phishing attacks reported annually</p>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold text-cyan-400 mb-2">$4.9M</div>
+                        <p class="text-blue-100">average cost of a data breach</p>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold text-cyan-400 mb-2">30%</div>
+                        <p class="text-blue-100">of phishing emails get opened</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center fade-in" style="animation-delay: 1.2s;">
+            <div class="bg-gradient-to-r from-purple-900 to-pink-900 bg-opacity-50 backdrop-blur-md rounded-2xl p-12 border border-purple-400 border-opacity-30">
+                <h2 class="text-3xl font-bold text-white mb-4">Ready to Test Your Knowledge?</h2>
+                <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+                    Now that you've learned about phishing, take our quiz to see how well you can spot the threats!
+                </p>
+                <div class="flex gap-4 justify-center">
+                    <a href="quiz.html" class="bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/50">
+                        Take the Quiz
+                    </a>
+                    <a href="resources.html" class="bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-bold py-4 px-8 rounded-xl transition-all backdrop-blur-md border border-white border-opacity-30">
+                        More Resources
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 bg-opacity-50 border-t border-blue-400 border-opacity-30 mt-20">
+        <div class="max-w-7xl mx-auto px-6 py-8 text-center">
+            <p class="text-blue-200">© 2024 PhishGuard - Cybersecurity Awareness Project</p>
+            <p class="text-blue-300 text-sm mt-2">Stay vigilant. Stay safe.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

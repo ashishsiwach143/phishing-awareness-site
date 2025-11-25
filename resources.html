@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard - Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .resource-card {
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .tool-badge {
+            transition: all 0.2s ease;
+        }
+
+        .tool-badge:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="m-0 p-0 bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 min-h-screen">
+    
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-950 bg-opacity-50 backdrop-blur-sm border-b border-blue-400 border-opacity-30 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <svg class="text-cyan-400" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span class="text-white font-bold text-xl">PhishGuard</span>
+                </div>
+                <div class="flex gap-6">
+                    <a href="index.html" class="text-white hover:text-cyan-300 transition-colors">Home</a>
+                    <a href="quiz.html" class="text-white hover:text-cyan-300 transition-colors">Quiz</a>
+                    <a href="learn.html" class="text-white hover:text-cyan-300 transition-colors">Learn</a>
+                    <a href="resources.html" class="text-cyan-300 font-bold">Resources</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="text-center mb-16 fade-in">
+            <h1 class="text-5xl font-bold text-white mb-4">🔗 Resources & Tools</h1>
+            <p class="text-xl text-cyan-100 max-w-3xl mx-auto">
+                Discover helpful tools, report phishing attempts, and find additional learning materials to stay protected online.
+            </p>
+        </div>
+
+        <!-- Report Phishing Section -->
+        <section class="mb-16 fade-in" style="animation-delay: 0.2s;">
+            <div class="bg-gradient-to-r from-red-900 to-orange-900 bg-opacity-50 backdrop-blur-md rounded-2xl p-8 border border-red-400 border-opacity-30">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 bg-red-500 bg-opacity-30 rounded-full flex items-center justify-center">
+                        <span class="text-4xl">🚨</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">Report Phishing Attempts</h2>
+                        <p class="text-red-200 mt-1">Help protect others by reporting suspicious activity</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-red-800 bg-opacity-30 rounded-lg p-6">
+                        <h4 class="text-xl font-bold text-red-200 mb-3">📧 Email Phishing</h4>
+                        <p class="text-red-100 text-sm mb-4">Forward suspicious emails to:</p>
+                        <div class="space-y-2">
+                            <a href="mailto:reportphishing@apwg.org" class="block text-cyan-300 hover:text-cyan-200 font-mono text-sm">reportphishing@apwg.org</a>
+                            <a href="mailto:spam@uce.gov" class="block text-cyan-300 hover:text-cyan-200 font-mono text-sm">spam@uce.gov (FTC)</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-800 bg-opacity-30 rounded-lg p-6">
+                        <h4 class="text-xl font-bold text-red-200 mb-3">📱 Text Scams (Smishing)</h4>
+                        <p class="text-red-100 text-sm mb-4">Forward suspicious texts to:</p>
+                        <div class="space-y-2">
+                            <div class="text-cyan-300 font-mono text-sm">7726 (SPAM)</div>
+                            <p class="text-red-100 text-xs">Works for most US carriers</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-800 bg-opacity-30 rounded-lg p-6">
+                        <h4 class="text-xl font-bold text-red-200 mb-3">🌐 Malicious Websites</h4>
+                        <p class="text-red-100 text-sm mb-4">Report fake websites to:</p>
+                        <div class="space-y-2">
+                            <a href="https://safebrowsing.google.com/safebrowsing/report_phish/" target="_blank" class="block text-cyan-300 hover:text-cyan-200 text-sm">Google Safe Browsing</a>
+                            <a href="https://www.microsoft.com/en-us/wdsi/support/report-unsafe-site" target="_blank" class="block text-cyan-300 hover:text-cyan-200 text-sm">Microsoft SmartScreen</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-800 bg-opacity-30 rounded-lg p-6">
+                        <h4 class="text-xl font-bold text-red-200 mb-3">💰 Financial Fraud</h4>
+                        <p class="text-red-100 text-sm mb-4">Report to your financial institution and:</p>
+                        <div class="space-y-2">
+                            <a href="https://www.ic3.gov" target="_blank" class="block text-cyan-300 hover:text-cyan-200 text-sm">FBI IC3</a>
+                            <a href="https://www.ftc.gov/complaint" target="_blank" class="block text-cyan-300 hover:text-cyan-200 text-sm">FTC Complaint Assistant</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-800 bg-opacity-30 rounded-lg p-6">
+                        <h4 class="text-xl font-bold text-red-200 mb-3">🏢 Company Impersonation</h4>
+                        <p class="text-red-100 text-sm mb-4">Major companies have dedicated reporting:</p>
+                        <div class="space-y-2">
+                            <div class="text-cyan-300 text-sm">Amazon: stop-spoofing@amazon.com</div>
+                            <div class="text-cyan-300 text-sm">PayPal: phishing@paypal.com</div>
+                            <div class="text-cyan-300 text-sm">Apple: reportphishing@apple.com</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-800 bg-opacity-30 rounded-lg p-6">
+                        <h4 class="text-xl font-bold text-red-200 mb-3">🆔 Identity Theft</h4>
+                        <p class="text-red-100 text-sm mb-4">If your info was compromised:</p>
+                        <div class="space-y-2">
+                            <a href="https://www.identitytheft.gov" target="_blank" class="block text-cyan-300 hover:text-cyan-200 text-sm">IdentityTheft.gov</a>
+                            <p class="text-red-100 text-xs">Get a recovery plan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Tools -->
+        <section class="mb-16 fade-in" style="animation-delay: 0.4s;">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">🛠️ Recommended Security Tools</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="resource-card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">🔐</span>
+                        <h3 class="text-2xl font-bold text-white">Password Managers</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">Secure your accounts with strong, unique passwords</p>
+                    <div class="space-y-3">
+                        <a href="https://bitwarden.com" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">Bitwarden</div>
+                            <div class="text-sm text-blue-200">Open-source, free option available</div>
+                        </a>
+                        <a href="https://1password.com" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">1Password</div>
+                            <div class="text-sm text-blue-200">User-friendly, family plans</div>
+                        </a>
+                        <a href="https://www.lastpass.com" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">LastPass</div>
+                            <div class="text-sm text-blue-200">Cross-platform support</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">🌐</span>
+                        <h3 class="text-2xl font-bold text-white">Browser Extensions</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">Add extra protection while browsing</p>
+                    <div class="space-y-3">
+                        <a href="https://www.ublock.org" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">uBlock Origin</div>
+                            <div class="text-sm text-blue-200">Block ads and malicious sites</div>
+                        </a>
+                        <a href="https://www.eff.org/https-everywhere" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">HTTPS Everywhere</div>
+                            <div class="text-sm text-blue-200">Encrypt web connections</div>
+                        </a>
+                        <a href="https://www.netcraft.com/apps/browser" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">Netcraft Extension</div>
+                            <div class="text-sm text-blue-200">Anti-phishing toolbar</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">📱</span>
+                        <h3 class="text-2xl font-bold text-white">Two-Factor Authentication</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">Add an extra layer of security to your accounts</p>
+                    <div class="space-y-3">
+                        <a href="https://authy.com" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">Authy</div>
+                            <div class="text-sm text-blue-200">Multi-device sync</div>
+                        </a>
+                        <a href="https://www.microsoft.com/en-us/security/mobile-authenticator-app" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">Microsoft Authenticator</div>
+                            <div class="text-sm text-blue-200">Easy setup, passwordless</div>
+                        </a>
+                        <a href="https://support.google.com/accounts/answer/1066447" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">Google Authenticator</div>
+                            <div class="text-sm text-blue-200">Simple, reliable</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">🔍</span>
+                        <h3 class="text-2xl font-bold text-white">URL Checkers</h3>
+                    </div>
+                    <p class="text-blue-100 mb-4">Verify if a link is safe before clicking</p>
+                    <div class="space-y-3">
+                        <a href="https://www.virustotal.com" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">VirusTotal</div>
+                            <div class="text-sm text-blue-200">Scan URLs and files</div>
+                        </a>
+                        <a href="https://urlscan.io" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">URLScan.io</div>
+                            <div class="text-sm text-blue-200">Analyze suspicious websites</div>
+                        </a>
+                        <a href="https://www.phishtank.com" target="_blank" class="tool-badge block bg-blue-900 bg-opacity-50 rounded-lg p-3 hover:bg-opacity-70">
+                            <div class="font-bold text-cyan-300">PhishTank</div>
+                            <div class="text-sm text-blue-200">Community phishing database</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Resources -->
+        <section class="mb-16 fade-in" style="animation-delay: 0.6s;">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">📚 Learning Resources</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="resource-card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="text-4xl mb-4">🎓</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Free Courses</h3>
+                    <div class="space-y-3 text-sm">
+                        <a href="https://www.cybrary.it" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            Cybrary - Free Cybersecurity Training
+                        </a>
+                        <a href="https://www.sans.org/cyber-security-training/free-courses/" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            SANS Cyber Aces Tutorials
+                        </a>
+                        <a href="https://www.coursera.org/learn/cyber-security" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            Coursera - Introduction to Cybersecurity
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="text-4xl mb-4">📰</div>
+                    <h3 class="text-xl font-bold text-white mb-3">News & Updates</h3>
+                    <div class="space-y-3 text-sm">
+                        <a href="https://krebsonsecurity.com" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            Krebs on Security
+                        </a>
+                        <a href="https://www.bleepingcomputer.com" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            BleepingComputer
+                        </a>
+                        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            CISA Cybersecurity Advisories
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
+                    <div class="text-4xl mb-4">🎮</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Interactive Training</h3>
+                    <div class="space-y-3 text-sm">
+                        <a href="https://phishingquiz.withgoogle.com" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            Google Phishing Quiz
+                        </a>
+                        <a href="https://www.opendns.com/phishing-quiz/" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            OpenDNS Phishing Quiz
+                        </a>
+                        <a href="https://www.sonicwall.com/en-us/phishing-iq-test" target="_blank" class="block text-cyan-300 hover:text-cyan-200">
+                            SonicWall Phishing IQ Test
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Government Resources -->
+        <section class="mb-16 fade-in" style="animation-delay: 0.8s;">
+            <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-8 border border-white border-opacity-20">
+                <h2 class="text-3xl font-bold text-white mb-8 text-center">🏛️ Government & Official Resources</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🇺🇸</div>
+                        <h4 class="text-lg font-bold text-white mb-2">CISA</h4>
+                        <a href="https://www.cisa.gov/stopthinkconnect" target="_blank" class="text-cyan-300 hover:text-cyan-200 text-sm">
+                            Cybersecurity & Infrastructure Security Agency
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🔒</div>
+                        <h4 class="text-lg font-bold text-white mb-2">FBI IC3</h4>
+                        <a href="https://www.ic3.gov" target="_blank" class="text-cyan-300 hover:text-cyan-200 text-sm">
+                            Internet Crime Complaint Center
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">⚖️</div>
+                        <h4 class="text-lg font-bold text-white mb-2">FTC</h4>
+                        <a href="https://www.consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank" class="text-cyan-300 hover:text-cyan-200 text-sm">
+                            Federal Trade Commission
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🛡️</div>
+                        <h4 class="text-lg font-bold text-white mb-2">US-CERT</h4>
+                        <a href="https://www.cisa.gov/uscert" target="_blank" class="text-cyan-300 hover:text-cyan-200 text-sm">
+                            United States Computer Emergency Readiness Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tips Box -->
+        <section class="mb-16 fade-in" style="animation-delay: 1s;">
+            <div class="bg-gradient-to-r from-purple-900 to-indigo-900 bg-opacity-50 backdrop-blur-md rounded-2xl p-8 border border-purple-400 border-opacity-30">
+                <h2 class="text-3xl font-bold text-white mb-6 text-center">💡 Quick Security Tips</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">✅</span>
+                            <div>
+                                <h4 class="font-bold text-purple-200 mb-1">DO: Enable 2FA everywhere</h4>
+                                <p class="text-purple-100 text-sm">Two-factor authentication is your best defense</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">✅</span>
+                            <div>
+                                <h4 class="font-bold text-purple-200 mb-1">DO: Keep software updated</h4>
+                                <p class="text-purple-100 text-sm">Updates often include critical security patches</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">✅</span>
+                            <div>
+                                <h4 class="font-bold text-purple-200 mb-1">DO: Use unique passwords</h4>
+                                <p class="text-purple-100 text-sm">Never reuse passwords across different accounts</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">✅</span>
+                            <div>
+                                <h4 class="font-bold text-purple-200 mb-1">DO: Verify requests directly</h4>
+                                <p class="text-purple-100 text-sm">Contact companies using official phone numbers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">❌</span>
+                            <div>
+                                <h4 class="font-bold text-purple-200 mb-1">DON'T: Click suspicious links</h4>
+                                <p class="text-purple-100 text-sm">Always hover to check URLs before clicking</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">❌</span>
+                            <div>
+                                <h4 class="font-bold text-purple-200 mb-1">DON'T: Share passwords</h4>
+                                <p class="text-purple-100 text-sm">No legitimate company will ask for your password</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">❌</span>
+                            <div>
+                                <h4 class="font-bold text-purple-200 mb-1">DON'T: Trust caller ID</h4>
+                                <p class="text-purple-100 text-sm">Phone numbers can be spoofed easily</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">❌</span>
+                            <div>
+                                <h4 class="font-bold text-purple-200 mb-1">DON'T: Act on urgency</h4>
+                                <p class="text-purple-100 text-sm">Scammers use pressure tactics to bypass your judgment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center fade-in" style="animation-delay: 1.2s;">
+            <div class="bg-gradient-to-r from-cyan-900 to-blue-900 bg-opacity-50 backdrop-blur-md rounded-2xl p-12 border border-cyan-400 border-opacity-30">
+                <h2 class="text-3xl font-bold text-white mb-4">Stay Safe, Stay Informed</h2>
+                <p class="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
+                    Bookmark this page and share it with friends and family. Together we can create a safer online environment!
+                </p>
+                <div class="flex gap-4 justify-center flex-wrap">
+                    <a href="index.html" class="bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-bold py-4 px-8 rounded-xl transition-all backdrop-blur-md border border-white border-opacity-30">
+                        Back to Home
+                    </a>
+                    <a href="quiz.html" class="bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/50">
+                        Test Your Knowledge
+                    </a>
+                    <a href="learn.html" class="bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-bold py-4 px-8 rounded-xl transition-all backdrop-blur-md border border-white border-opacity-30">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 bg-opacity-50 border-t border-blue-400 border-opacity-30 mt-20">
+        <div class="max-w-7xl mx-auto px-6 py-8 text-center">
+            <p class="text-blue-200">© 2024 PhishGuard - Cybersecurity Awareness Project</p>
+            <p class="text-blue-300 text-sm mt-2">Stay vigilant. Stay safe.</p>
+            <div class="mt-4 text-blue-300 text-sm">
+                <p>Made with 💙 for cybersecurity awareness | Not affiliated with any organization</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
